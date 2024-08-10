@@ -1,38 +1,206 @@
+/* Base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 .App {
+  position: relative;
+  padding-top: 60px; /* Space for the fixed navbar */
+}
+
+/* Navbar styles */
+nav {
+  display: block;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgba(47, 50, 54, 0.8);
+  padding: 1em;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+nav h1 {
+  color: #fff;
+  display: inline;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: inline;
+  float: right;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 1em;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Cart icon */
+.cart-icon {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+}
+
+.cart-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-size: 1.1em;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.quantity-input {
+  width: 60px;
+  margin: 5px 0;
+}
+
+.add-to-cart-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #218838;
+}
+
+/* Popup form styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.popup-form input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.popup-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.popup-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .nav h1 {
+    font-size: 1.5em;
+  }
+
+  .nav ul {
+    float: none;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .cart-icon {
+    right: 10px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .product-item {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .cart-icon img {
+    width: 40px;
+    height: 40px;
+  }
+}
+.circle-number {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 2rem; /* Adjust the size as needed */
+  height: 2rem; /* Adjust the size as needed */
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: rgb(175, 192, 237); /* Adjust the color as needed */
+  border-radius: 50%;
 }
